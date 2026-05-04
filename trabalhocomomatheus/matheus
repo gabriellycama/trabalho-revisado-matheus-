@@ -1,0 +1,172 @@
+
+# esta no colab colocamos aqui como exemplo o link foi enviado de novo 
+
+
+**Dupla:**
+
+**Gabrielly: Exercícios 1 ao 4**
+
+**Matheus Gonçalves: Exercícios 5 ao 8**
+
+
+
+ATIVIDADE 5: Um determinado material radioativo perde metade de sua massa a cada 50 segundos. Dada a massa inicial em gramas informada pelo usuário, fazer um programa que calcula o tempo necessário para que essa massa se torne menor que 0,5 grama. O programa deve escrever a massa inicial, a massa final e o tempo calculado em horas, minutos e segundos.**
+
+
+
+massa_inicial = float(input("Digite a massa inicial: "))
+massa_final = massa_inicial
+tempo_total = 0
+
+while massa_final >= 0.5:
+  massa_final = massa_final/2
+  tempo_total = tempo_total + 50
+
+horas = tempo_total // 3600
+minutos = (tempo_total % 3600) // 60
+segundos = tempo_total % 60
+
+print(f"Massa Inicial: {massa_inicial} gramas.")
+print(f"Massa Final: {massa_final:.2f} gramas.")
+print(f"Tempo Necessário: {horas}h {minutos}m {segundos}s.")
+
+
+
+
+**RESOLUÇÃO:**
+
+*  Primeiro criei a variável `massa_inicial` e coloquei o input para a pessoa escrever a massa e coloquei o float para o valor da massa ser decimal.
+
+* Depois criei a variável `massa_final` que terá o mesmo valor da `massa_inicial`, e após isso, criei a variável `tempo_total` que possui o valor 0.
+
+* O laço `while` é para calcular a massa_final dividida por 2 e adicionar 50 dentro da variável tempo_total.
+
+* O código das horas, minutos e segundos é um calculo básico, para calcular o tempo das horas, minutos e segundos.
+
+* E os prints são para mostrar os valores.
+
+
+
+**ATIVIDADE 6: A série de Fibonacci é formada pela sequência: 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, … Escreva um algoritmo que gere a série de FIBONACCI até o N-ésimo termo, sendo este informado pelo usuário.**
+
+
+
+
+n = int(input("Quantos termos da sequência você deseja? "))
+a = 1
+b = 1
+
+print("Série de Fibonacci:")
+
+for i in range(n):
+    print(a, end=" ")
+    a, b = b, a + b
+
+
+
+
+**Resolução:**
+
+* Criei a variável `n` colocando o input para escrever e coloquei o int, para o número sempre ser inteiro e não ser decimal. Após isso criei às variáveis `a` e `b` que valem 1.
+
+* O `for` está sendo utilizado para a troca depois de cada volta feita.
+
+* E os prints são para mostrar os valores.
+
+
+
+**ATIVIDADE 7: Faça um programa que receba um conjunto de valores inteiros e positivos e que calcule e mostre o
+maior e o menor valor do conjunto. Considere que:**
+
+a. **Para encerrar a entrada de dados, deve ser digitado o valor zero;**
+
+b. **Para valores negativos, deve ser enviada uma mensagem informando que esses números não serão considerados na análise;**
+
+
+
+
+maior = None
+menor = None
+
+while True:
+    valor = int(input("Digite um valor (0 para sair): "))
+
+    if valor == 0:
+      break
+    if valor < 0:
+        print("Valores negativos não serão considerados!")
+        continue
+
+    if maior is None or valor > maior:
+        maior = valor
+    if menor is None or valor < menor:
+      menor = valor
+
+if maior is not None:
+    print(f"O maior valor digitado foi: {maior}")
+    print(f"O menor valor digitado foi: {menor}")
+else:
+    print("Nenhum valor válido foi digitado.")
+
+
+
+
+**Resolução:**
+
+* Criei às variáveis `maior` e `menor`, ambas com o valor None(Valor vazio).
+
+* Depois eu criei o `while` que vai ser onde o código será realizado. Coloquei o valor como input para o usuário digitar e coloqui int para o valor não ser decimal. Nos `ifs` eu fiz com que se o valor for 0 o código iria parar e se o número digitado for menor que 0, uma mensagem dizendo que não serão considerados os números negativos irá aparecer e o código voltara para o inicio.
+Também fiz com que os ifs vejam se esta for a primeira vez que vejo um número ou se este novo número for maior que o que eu já guardei, então ele irá esqueçer o antigo e guardar o novo e fiz um if para mostrar ás diferentes prints.
+
+* Os prints são para mostrar os valores.
+
+
+
+**ATIVIDADE 8: Escreva um algoritmo que recebe uma sequência de DNA e que percorre essa sequência imprimindo, para cada posição, qual é o nome do nucleotídeo da posição. Por exemplo: dada a sequência AGGTC, o seu algoritmo deve imprimir a seguinte saída:**
+
+1 – A: Adenina
+2 – G: Guanina
+3 – G: Guanina
+4 – T: Timina
+5 – C: Citosina
+
+**Caso a sequência possua algum caractere diferente dos descritos acima, o seu algoritmo deve escrever: “Nucleotídeo inválido!”**
+
+
+
+
+sequencia = input("Digite a sequência de DNA: ").upper()
+posicao = 0
+
+while posicao < len(sequencia):
+    letra = sequencia[posicao]
+    numero_exibicao = posicao + 1
+
+    if letra == "A":
+        nome = "Adenina"
+    elif letra == "G":
+        nome = "Guanina"
+    elif letra == "T":
+        nome = "Timina"
+    elif letra == "C":
+        nome = "Citosina"
+    else:
+        nome = "Nucleotídeo inválido!"
+
+    if nome == "Nucleotídeo inválido!":
+        print(nome)
+        break
+    else:
+        print(f"{numero_exibicao} – {letra}: {nome}", end=" ")
+
+    posicao += 1
+
+
+
+**Resolução:**
+
+* Criei a variável `sequencia` e dentro dela coloquei o input para receber o texto e coloquei o upper para todas às letras digitadas se tornem maiúsculas. Também criei a variável `posicao` com o valor de zero, para dizer onde a contagem começa antes de o loop iniciar.
+
+* Após isso, usei o laço(while) e o len(sequencia), para contar quantas letras o DNA tem.
+
+* O `if` e o `elif` são para ver se às letras e suas posições estão certas, caso não esteja, o `else` será acionado e irá exibir a mensagem utilizando os prints.
